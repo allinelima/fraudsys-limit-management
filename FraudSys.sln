@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{248490C7-E089-4FF5-A5D5-5B0875723F18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudSys.Api", "src\Api\FraudSys.Api.csproj", "{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudSys.Application", "src\Application\FraudSys.Application.csproj", "{011A4FD4-863E-4F30-8AA3-074D76B1FEB1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudSys.Domain", "src\Domain\FraudSys.Domain.csproj", "{A4AE6BD7-EC74-4583-9200-A2157DBB36A3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudSys.Infrastructure", "src\Infrastructure\FraudSys.Infrastructure.csproj", "{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FraudSys.Tests", "src\Tests\FraudSys.Tests.csproj", "{A8A7C38D-692B-4F12-9C65-7A07AAF07D61}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38}.Release|Any CPU.Build.0 = Release|Any CPU
+		{011A4FD4-863E-4F30-8AA3-074D76B1FEB1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{011A4FD4-863E-4F30-8AA3-074D76B1FEB1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{011A4FD4-863E-4F30-8AA3-074D76B1FEB1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{011A4FD4-863E-4F30-8AA3-074D76B1FEB1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A4AE6BD7-EC74-4583-9200-A2157DBB36A3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A4AE6BD7-EC74-4583-9200-A2157DBB36A3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A4AE6BD7-EC74-4583-9200-A2157DBB36A3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A4AE6BD7-EC74-4583-9200-A2157DBB36A3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A8A7C38D-692B-4F12-9C65-7A07AAF07D61}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A8A7C38D-692B-4F12-9C65-7A07AAF07D61}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A8A7C38D-692B-4F12-9C65-7A07AAF07D61}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A8A7C38D-692B-4F12-9C65-7A07AAF07D61}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D5DCFE88-994E-4E35-89D6-B8C9B26BCC38} = {248490C7-E089-4FF5-A5D5-5B0875723F18}
+		{011A4FD4-863E-4F30-8AA3-074D76B1FEB1} = {248490C7-E089-4FF5-A5D5-5B0875723F18}
+		{A4AE6BD7-EC74-4583-9200-A2157DBB36A3} = {248490C7-E089-4FF5-A5D5-5B0875723F18}
+		{C2DDEFC1-0DD8-41A9-B770-6956E0B4C4B2} = {248490C7-E089-4FF5-A5D5-5B0875723F18}
+		{A8A7C38D-692B-4F12-9C65-7A07AAF07D61} = {248490C7-E089-4FF5-A5D5-5B0875723F18}
+	EndGlobalSection
+EndGlobal
