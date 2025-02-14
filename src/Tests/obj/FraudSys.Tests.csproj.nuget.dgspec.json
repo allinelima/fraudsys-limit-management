@@ -1,0 +1,361 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/FraudSys.Tests.csproj": {}
+  },
+  "projects": {
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj",
+        "projectName": "FraudSys.Api",
+        "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj",
+        "packagesPath": "/home/aline/.nuget/packages/",
+        "outputPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
+              },
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.OpenApi": {
+              "target": "Package",
+              "version": "[7.0.19, )"
+            },
+            "Swashbuckle.AspNetCore": {
+              "target": "Package",
+              "version": "[7.2.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.AspNetCore.App": {
+              "privateAssets": "none"
+            },
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.119/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj",
+        "projectName": "FraudSys.Application",
+        "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj",
+        "packagesPath": "/home/aline/.nuget/packages/",
+        "outputPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.119/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj",
+        "projectName": "FraudSys.Domain",
+        "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj",
+        "packagesPath": "/home/aline/.nuget/packages/",
+        "outputPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.119/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj",
+        "projectName": "FraudSys.Infrastructure",
+        "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj",
+        "packagesPath": "/home/aline/.nuget/packages/",
+        "outputPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
+              },
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AWSSDK.DynamoDBv2": {
+              "target": "Package",
+              "version": "[3.7.405.22, )"
+            },
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            },
+            "Microsoft.Extensions.DependencyInjection": {
+              "target": "Package",
+              "version": "[9.0.2, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.119/RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/FraudSys.Tests.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/FraudSys.Tests.csproj",
+        "projectName": "FraudSys.Tests",
+        "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/FraudSys.Tests.csproj",
+        "packagesPath": "/home/aline/.nuget/packages/",
+        "outputPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/aline/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj"
+              },
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
+              },
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj"
+              },
+              "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj": {
+                "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "FluentAssertions": {
+              "target": "Package",
+              "version": "[8.0.1, )"
+            },
+            "Microsoft.NET.Test.Sdk": {
+              "target": "Package",
+              "version": "[17.3.2, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.20.72, )"
+            },
+            "coverlet.collector": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[3.1.2, )"
+            },
+            "xunit": {
+              "target": "Package",
+              "version": "[2.4.2, )"
+            },
+            "xunit.runner.visualstudio": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.4.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.119/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}
