@@ -27,8 +27,8 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error creating account");
-            return BadRequest(new { message = ex.Message });
+            _logger.LogError(ex, "Erro ao criar conta");
+            return BadRequest(new { mensagem = ex.Message });
         }
     }
 
@@ -42,8 +42,8 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error getting account {AccountNumber}", accountNumber);
-            return NotFound(new { message = ex.Message });
+            _logger.LogError(ex, "Erro ao buscar conta {AccountNumber}", accountNumber);
+            return NotFound(new { mensagem = ex.Message });
         }
     }
 
@@ -57,8 +57,8 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error updating limit for account {AccountNumber}", accountNumber);
-            return BadRequest(new { message = ex.Message });
+            _logger.LogError(ex, "Erro ao atualizar limite para conta {AccountNumber}", accountNumber);
+            return BadRequest(new { mensagem = ex.Message });
         }
     }
 
@@ -72,8 +72,8 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error deleting account {AccountNumber}", accountNumber);
-            return BadRequest(new { message = ex.Message });
+            _logger.LogError(ex, "Erro ao excluir conta {AccountNumber}", accountNumber);
+            return BadRequest(new { mensagem = ex.Message });
         }
     }
 
@@ -87,8 +87,8 @@ public class AccountController : ControllerBase
         }
         catch (Exception ex)
         {
-            _logger.LogError(ex, "Error processing transaction for account {AccountNumber}", request.AccountNumber);
-            return BadRequest(new { message = ex.Message });
+            _logger.LogError(ex, "Erro ao processar transação para conta {AccountNumber}", request.AccountNumber);
+            return BadRequest(new { mensagem = ex.Message });
         }
     }
 }

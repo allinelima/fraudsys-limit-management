@@ -29,7 +29,7 @@ public class Account
     public bool CanProcessTransaction(decimal amount)
     {
         if (amount <= 0)
-            throw new DomainException("Transaction amount must be greater than zero");
+            throw new DomainException("O valor da transação deve ser maior que zero");
             
         return PixLimit >= amount;
     }
@@ -45,7 +45,7 @@ public class Account
     public void DeductLimit(decimal amount)
     {
         if (!CanProcessTransaction(amount))
-            throw new DomainException("Insufficient limit for transaction");
+            throw new DomainException("Limite insuficiente para a transação");
             
         PixLimit -= amount;
     }
@@ -54,36 +54,36 @@ public class Account
     private void ValidateDocument(string document)
     {
         if (string.IsNullOrWhiteSpace(document))
-            throw new DomainException("Document cannot be empty");
+            throw new DomainException("O documento não pode estar vazio");
             
         if (document.Length != 11)
-            throw new DomainException("Document must have 11 digits");
+            throw new DomainException("O documento deve ter 11 dígitos");
             
         if (!document.All(char.IsDigit))
-            throw new DomainException("Document must contain only numbers");
+            throw new DomainException("O documento deve conter apenas números");
     }
 
     private void ValidateAgency(string agency)
     {
         if (string.IsNullOrWhiteSpace(agency))
-            throw new DomainException("Agency cannot be empty");
+            throw new DomainException("A agência não pode estar vazia");
             
         if (!agency.All(char.IsDigit))
-            throw new DomainException("Agency must contain only numbers");
+            throw new DomainException("A agência deve conter apenas números");
     }
 
     private void ValidateAccountNumber(string accountNumber)
     {
         if (string.IsNullOrWhiteSpace(accountNumber))
-            throw new DomainException("Account number cannot be empty");
+            throw new DomainException("O número da conta não pode estar vazio");
             
         if (!accountNumber.All(char.IsDigit))
-            throw new DomainException("Account number must contain only numbers");
+            throw new DomainException("O número da conta deve conter apenas números");
     }
 
     private void ValidatePixLimit(decimal pixLimit)
     {
         if (pixLimit < 0)
-            throw new DomainException("PIX limit cannot be negative");
+            throw new DomainException("O limite PIX não pode ser negativo");
     }
 }

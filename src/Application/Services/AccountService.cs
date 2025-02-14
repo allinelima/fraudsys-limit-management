@@ -26,7 +26,7 @@ public class AccountService : IAccountService
     {
         var account = await _accountRepository.GetByAccountNumberAsync(accountNumber);
         if (account == null)
-            throw new DomainException("Account not found");
+            throw new DomainException("Conta não encontrada");
             
         return MapToDto(account);
     }
@@ -35,7 +35,7 @@ public class AccountService : IAccountService
     {
         var account = await _accountRepository.GetByAccountNumberAsync(accountNumber);
         if (account == null)
-            throw new DomainException("Account not found");
+            throw new DomainException("Conta não encontrada");
 
         account.UpdateLimit(dto.NewPixLimit);
         await _accountRepository.UpdateAsync(account);
@@ -52,10 +52,10 @@ public class AccountService : IAccountService
     {
         var account = await _accountRepository.GetByAccountNumberAsync(dto.AccountNumber);
         if (account == null)
-            throw new DomainException("Account not found");
+            throw new DomainException("Conta não encontrada");
 
         if (!account.CanProcessTransaction(dto.Amount))
-            return new TransactionResultDto { IsApproved = false, Message = "Insufficient limit" };
+            return new TransactionResultDto { IsApproved = false, Message = "Limite insuficiente" };
 
         account.DeductLimit(dto.Amount);
         await _accountRepository.UpdateAsync(account);

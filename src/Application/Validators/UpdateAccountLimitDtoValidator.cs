@@ -8,6 +8,6 @@ public class UpdateAccountLimitDtoValidator : AbstractValidator<UpdateAccountLim
     public UpdateAccountLimitDtoValidator()
     {
         RuleFor(x => x.NewPixLimit)
-            .GreaterThanOrEqualTo(0).WithMessage("PIX limit cannot be negative");
+            .GreaterThanOrEqualTo(0).WithMessage("O novo limite PIX não pode ser negativo");
     }
 }
