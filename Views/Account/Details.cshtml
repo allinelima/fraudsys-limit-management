@@ -1,0 +1,24 @@
+@model FraudSys.Application.DTOs.AccountDto
+
+@{
+    ViewData["Title"] = "Detalhes da Conta";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div class="form-group">
+    <label for="Document">Documento (CPF):</label>
+    <input type="text" class="form-control" id="Document" value="@Model.Document" readonly />
+</div>
+<div class="form-group">
+    <label for="Agency">Agência:</label>
+    <input type="text" class="form-control" id="Agency" value="@Model.Agency" readonly />
+</div>
+<div class="form-group">
+    <label for="AccountNumber">Número da Conta:</label>
+    <input type="text" class="form-control" id="AccountNumber" value="@Model.AccountNumber" readonly />
+</div>
+<div class="form-group">
+    <label for="PixLimit">Limite PIX:</label>
+    <input type="number" class="form-control" id="PixLimit" value="@Model.PixLimit" readonly />
+</div>

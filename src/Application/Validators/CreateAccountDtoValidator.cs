@@ -8,19 +8,19 @@ public class CreateAccountDtoValidator : AbstractValidator<CreateAccountDto>
     public CreateAccountDtoValidator()
     {
         RuleFor(x => x.Document)
-            .NotEmpty().WithMessage("Document is required")
-            .Length(11).WithMessage("Document must have 11 digits")
-            .Matches("^[0-9]+$").WithMessage("Document must contain only numbers");
+            .NotEmpty().WithMessage("O documento é obrigatório")
+            .Length(11).WithMessage("O documento deve ter 11 dígitos")
+            .Matches("^[0-9]+$").WithMessage("O documento deve conter apenas números");
 
         RuleFor(x => x.Agency)
-            .NotEmpty().WithMessage("Agency is required")
-            .Matches("^[0-9]+$").WithMessage("Agency must contain only numbers");
+            .NotEmpty().WithMessage("A agência é obrigatória")
+            .Matches("^[0-9]+$").WithMessage("A agência deve conter apenas números");
 
         RuleFor(x => x.AccountNumber)
-            .NotEmpty().WithMessage("Account number is required")
-            .Matches("^[0-9]+$").WithMessage("Account number must contain only numbers");
+            .NotEmpty().WithMessage("O número da conta é obrigatório")
+            .Matches("^[0-9]+$").WithMessage("O número da conta deve conter apenas números");
 
         RuleFor(x => x.PixLimit)
-            .GreaterThanOrEqualTo(0).WithMessage("PIX limit cannot be negative");
+            .GreaterThanOrEqualTo(0).WithMessage("O limite PIX não pode ser negativo");
     }
 }

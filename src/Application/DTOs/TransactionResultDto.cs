@@ -1,13 +1,18 @@
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace Application.DTOs
+namespace FraudSys.Application.DTOs
 {
     public class TransactionResultDto
     {
-        public bool IsApproved { get; set; }
-    public string Message { get; set; }
+        public bool Success { get; set; }
+        public string Message { get; set; }
+        public decimal NewBalance { get; set; }
+
+        public TransactionResultDto(bool success, string message, decimal newBalance)
+        {
+            Success = success;
+            Message = message ?? throw new ArgumentNullException(nameof(message));
+            NewBalance = newBalance;
+        }
     }
 }
