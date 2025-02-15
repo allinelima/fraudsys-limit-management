@@ -8,10 +8,10 @@ public class ProcessTransactionDtoValidator : AbstractValidator<ProcessTransacti
     public ProcessTransactionDtoValidator()
     {
         RuleFor(x => x.AccountNumber)
-            .NotEmpty().WithMessage("Account number is required")
-            .Matches("^[0-9]+$").WithMessage("Account number must contain only numbers");
+            .NotEmpty().WithMessage("O número da conta é obrigatório")
+            .Matches("^[0-9]+$").WithMessage("O número da conta deve conter apenas números");
 
         RuleFor(x => x.Amount)
-            .GreaterThan(0).WithMessage("Transaction amount must be greater than zero");
+            .GreaterThan(0).WithMessage("O valor da transação deve ser maior que zero");
     }
 }

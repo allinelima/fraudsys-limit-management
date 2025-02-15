@@ -1,8 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "Wh53xqZltLz11ahipTk8q3dDDpRb/aB4TLTZ2NJpOSlJ3Box7gKvgdv6GKjep1LMrO8kSsmQ6YE7KMMMGh5wgw==",
+  "dgSpecHash": "GOXa9oEnmqTejgkgztb2EhhDDrHXGa6icHmBe2RLLFmXFpvYlm5y4pbINakuuhCKZ7qwvITj+MfD+DAU4I6oCQ==",
   "success": true,
   "projectFilePath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/aline/.nuget/packages/fluentvalidation/11.8.0/fluentvalidation.11.8.0.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.1/microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }
