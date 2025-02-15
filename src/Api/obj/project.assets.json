@@ -8596,6 +8596,7 @@
       "AspNetCore.HealthChecks.DynamoDb >= 7.0.0",
       "FluentValidation.AspNetCore >= 11.3.0",
       "FraudSys.Application >= 1.0.0",
+      "FraudSys.Domain >= 1.0.0",
       "FraudSys.Infrastructure >= 1.0.0",
       "Microsoft.AspNetCore.Mvc >= 2.3.0",
       "Microsoft.AspNetCore.OpenApi >= 7.0.15",
@@ -8629,6 +8630,9 @@
           "projectReferences": {
             "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
               "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
+            },
+            "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
+              "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj"
             },
             "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj": {
               "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj"

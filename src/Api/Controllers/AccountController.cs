@@ -56,14 +56,15 @@ namespace FraudSys.Api.Controllers
             return View(account);
         }
 
-        // Método para atualizar o limite da conta
+        // Método para exibir a atualização do limite da conta
         [HttpGet("{accountNumber}/limit")]
         public IActionResult UpdateLimit(string accountNumber)
         {
-            var model = new UpdateAccountLimitDto { AccountNumber = accountNumber };
+            var model = new UpdateAccountLimitDto(accountNumber, 0); // Passando o accountNumber e 0 como valor inicial para NewLimit
             return View(model);
         }
 
+        // Método para atualizar o limite da conta
         [HttpPost("{accountNumber}/limit")]
         public async Task<IActionResult> UpdateLimit(string accountNumber, UpdateAccountLimitDto request)
         {

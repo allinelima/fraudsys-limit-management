@@ -17,9 +17,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Application\FraudSys.Application.csproj" />
-    <ProjectReference Include="..\Infrastructure\FraudSys.Infrastructure.csproj" />
-  </ItemGroup>
+  <ProjectReference Include="..\Domain\FraudSys.Domain.csproj" />
+  <ProjectReference Include="..\Application\FraudSys.Application.csproj" />
+  <ProjectReference Include="..\Infrastructure\FraudSys.Infrastructure.csproj" />
+</ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FluentValidation.AspNetCore" Version="11.3.0" />
