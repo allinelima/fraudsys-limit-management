@@ -1,0 +1,15 @@
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/bin/Debug/net7.0/FraudSys.Application.deps.json
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/bin/Debug/net7.0/FraudSys.Application.dll
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/bin/Debug/net7.0/FraudSys.Application.pdb
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/bin/Debug/net7.0/FraudSys.Domain.dll
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/bin/Debug/net7.0/FraudSys.Domain.pdb
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.csproj.AssemblyReference.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.GeneratedMSBuildEditorConfig.editorconfig
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.AssemblyInfoInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.AssemblyInfo.cs
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.csproj.CoreCompileInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.csproj.CopyComplete
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.dll
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/refint/FraudSys.Application.dll
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/FraudSys.Application.pdb
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/obj/Debug/net7.0/ref/FraudSys.Application.dll

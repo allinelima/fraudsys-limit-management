@@ -4,16 +4,13 @@ namespace FraudSys.Domain.Entities;
 
 public class Account
 {
-    // Propriedades com setters privados para garantir encapsulamento
-    public string Document { get; private set; }  // CPF
-    public string Agency { get; private set; }
-    public string AccountNumber { get; private set; }
+    public string Document { get; set; } = string.Empty;
+    public string Agency { get; set; } = string.Empty;
+    public string AccountNumber { get; set; } = string.Empty;
     public decimal PixLimit { get; private set; }
 
-    // Construtor com validações
     public Account(string document, string agency, string accountNumber, decimal pixLimit)
     {
-        // Validamos todos os campos antes de criar a conta
         ValidateDocument(document);
         ValidateAgency(agency);
         ValidateAccountNumber(accountNumber);
@@ -25,7 +22,6 @@ public class Account
         PixLimit = pixLimit;
     }
 
-    // Método que verifica se uma transação pode ser processada
     public bool CanProcessTransaction(decimal amount)
     {
         if (amount <= 0)
@@ -34,14 +30,12 @@ public class Account
         return PixLimit >= amount;
     }
 
-    // Método para atualizar o limite PIX
-    public void UpdateLimit(decimal newLimit)
+    public void UpdatePixLimit(decimal newLimit)
     {
         ValidatePixLimit(newLimit);
         PixLimit = newLimit;
     }
 
-    // Método para deduzir um valor do limite
     public void DeductLimit(decimal amount)
     {
         if (!CanProcessTransaction(amount))
@@ -50,15 +44,14 @@ public class Account
         PixLimit -= amount;
     }
 
-    // Validações privadas
     private void ValidateDocument(string document)
     {
         if (string.IsNullOrWhiteSpace(document))
-            throw new DomainException("O documento não pode estar vazio");
-            
+            throw new DomainException("O documento é obrigatório");
+
         if (document.Length != 11)
             throw new DomainException("O documento deve ter 11 dígitos");
-            
+
         if (!document.All(char.IsDigit))
             throw new DomainException("O documento deve conter apenas números");
     }
@@ -66,8 +59,8 @@ public class Account
     private void ValidateAgency(string agency)
     {
         if (string.IsNullOrWhiteSpace(agency))
-            throw new DomainException("A agência não pode estar vazia");
-            
+            throw new DomainException("A agência é obrigatória");
+
         if (!agency.All(char.IsDigit))
             throw new DomainException("A agência deve conter apenas números");
     }
@@ -75,8 +68,8 @@ public class Account
     private void ValidateAccountNumber(string accountNumber)
     {
         if (string.IsNullOrWhiteSpace(accountNumber))
-            throw new DomainException("O número da conta não pode estar vazio");
-            
+            throw new DomainException("O número da conta é obrigatório");
+
         if (!accountNumber.All(char.IsDigit))
             throw new DomainException("O número da conta deve conter apenas números");
     }

@@ -5,7 +5,6 @@ using FraudSys.Domain.Exceptions;
 
 namespace FraudSys.Application.Services;
 
-
 public class AccountService : IAccountService
 {
     private readonly IAccountRepository _accountRepository;
@@ -15,11 +14,20 @@ public class AccountService : IAccountService
         _accountRepository = accountRepository;
     }
 
-    public async Task<AccountDto> CreateAccountAsync(CreateAccountDto dto)
+    public async Task<AccountDto> CreateAccountAsync(CreateAccountDto createAccountDto)
     {
-        var account = new Account(dto.Document, dto.Agency, dto.AccountNumber, dto.PixLimit);
-        await _accountRepository.AddAsync(account);
-        return MapToDto(account);
+        var account = new Account(
+            createAccountDto.Document,
+            createAccountDto.Agency,
+            createAccountDto.AccountNumber,
+            createAccountDto.PixLimit
+        );
+
+        var createdAccount = await _accountRepository.AddAsync(account);
+        if (createdAccount == null)
+            throw new DomainException("Erro ao criar conta");
+
+        return MapToDto(createdAccount);
     }
 
     public async Task<AccountDto> GetAccountAsync(string accountNumber)
@@ -27,50 +35,70 @@ public class AccountService : IAccountService
         var account = await _accountRepository.GetByAccountNumberAsync(accountNumber);
         if (account == null)
             throw new DomainException("Conta não encontrada");
-            
+
         return MapToDto(account);
     }
 
-    public async Task<AccountDto> UpdateLimitAsync(string accountNumber, UpdateAccountLimitDto dto)
+    public async Task<AccountDto> UpdateLimitAsync(string accountNumber, UpdateAccountLimitDto updateLimitDto)
     {
         var account = await _accountRepository.GetByAccountNumberAsync(accountNumber);
         if (account == null)
             throw new DomainException("Conta não encontrada");
 
-        account.UpdateLimit(dto.NewPixLimit);
-        await _accountRepository.UpdateAsync(account);
-        
-        return MapToDto(account);
+        account.UpdatePixLimit(updateLimitDto.NewLimit);
+        var updatedAccount = await _accountRepository.UpdateAsync(account);
+        if (updatedAccount == null)
+            throw new DomainException("Erro ao atualizar conta");
+
+        return MapToDto(updatedAccount);
     }
 
     public async Task DeleteAccountAsync(string accountNumber)
     {
-        await _accountRepository.DeleteAsync(accountNumber);
-    }
-
-    public async Task<TransactionResultDto> ProcessTransactionAsync(ProcessTransactionDto dto)
-    {
-        var account = await _accountRepository.GetByAccountNumberAsync(dto.AccountNumber);
+        var account = await _accountRepository.GetByAccountNumberAsync(accountNumber);
         if (account == null)
             throw new DomainException("Conta não encontrada");
 
-        if (!account.CanProcessTransaction(dto.Amount))
-            return new TransactionResultDto { IsApproved = false, Message = "Limite insuficiente" };
+        await _accountRepository.DeleteAsync(accountNumber);
+    }
 
-        account.DeductLimit(dto.Amount);
-        await _accountRepository.UpdateAsync(account);
+    public async Task<TransactionResultDto> ProcessTransactionAsync(ProcessTransactionDto transactionDto)
+    {
+        var account = await _accountRepository.GetByAccountNumberAsync(transactionDto.AccountNumber);
+        if (account == null)
+            throw new DomainException("Conta não encontrada");
 
-        return new TransactionResultDto { IsApproved = true };
+        if (!account.CanProcessTransaction(transactionDto.Amount))
+        {
+            return new TransactionResultDto(
+                success: false,
+                message: "Limite insuficiente para a transação",
+                newBalance: account.PixLimit
+            );
+        }
+
+        account.DeductLimit(transactionDto.Amount);
+        var updatedAccount = await _accountRepository.UpdateAsync(account);
+        if (updatedAccount == null)
+            throw new DomainException("Erro ao processar transação");
+
+        return new TransactionResultDto(
+            success: true,
+            message: "Transação processada com sucesso",
+            newBalance: updatedAccount.PixLimit
+        );
     }
 
     private static AccountDto MapToDto(Account account)
     {
-        return new AccountDto
-        {
-            Document = account.Document,
-            Agency = account.Agency,
-            AccountNumber = account.AccountNumber,
-            PixLimit = account.PixLimit
-        };
+        if (account == null)
+            throw new ArgumentNullException(nameof(account));
+
+        return new AccountDto(
+            document: account.Document,
+            agency: account.Agency,
+            accountNumber: account.AccountNumber,
+            pixLimit: account.PixLimit
+        );
     }
 }

@@ -2,6 +2,7 @@ using Amazon.DynamoDBv2;
 using Amazon.DynamoDBv2.Model;
 using FraudSys.Domain.Entities;
 using FraudSys.Domain.Interfaces;
+using FraudSys.Domain.Exceptions;
 using Microsoft.Extensions.Configuration;
 using System.Text.Json;
 
@@ -14,69 +15,121 @@ public class AccountRepository : IAccountRepository
 
     public AccountRepository(IAmazonDynamoDB dynamoDb, IConfiguration configuration)
     {
-        _dynamoDb = dynamoDb;
-        _tableName = configuration["DynamoDB:TableName"];
+        _dynamoDb = dynamoDb ?? throw new ArgumentNullException(nameof(dynamoDb));
+        _tableName = configuration["DynamoDB:TableName"] ?? throw new ArgumentNullException("DynamoDB:TableName não configurado");
     }
 
-    public async Task<Account> GetByAccountNumberAsync(string accountNumber)
+    public async Task<Account?> GetByAccountNumberAsync(string accountNumber)
     {
-        var request = new GetItemRequest
+        if (string.IsNullOrEmpty(accountNumber))
+            throw new ArgumentNullException(nameof(accountNumber));
+
+        try
         {
-            TableName = _tableName,
-            Key = new Dictionary<string, AttributeValue>
+            var request = new GetItemRequest
             {
-                { "AccountNumber", new AttributeValue { S = accountNumber } }
-            }
-        };
+                TableName = _tableName,
+                Key = new Dictionary<string, AttributeValue>
+                {
+                    { "AccountNumber", new AttributeValue { S = accountNumber } }
+                }
+            };
 
-        var response = await _dynamoDb.GetItemAsync(request);
-        
-        if (response.Item == null || !response.Item.Any())
-            return null;
+            var response = await _dynamoDb.GetItemAsync(request);
+            
+            if (response.Item == null || !response.Item.Any())
+                return null;
 
-        return MapToAccount(response.Item);
+            return MapToAccount(response.Item);
+        }
+        catch (AmazonDynamoDBException ex)
+        {
+            throw new DomainException($"Erro ao buscar conta: {ex.Message}", ex);
+        }
     }
 
-    public async Task AddAsync(Account account)
+    public async Task<Account?> AddAsync(Account account)
     {
-        var item = MapFromAccount(account);
-        
-        var request = new PutItemRequest
-        {
-            TableName = _tableName,
-            Item = item,
-            ConditionExpression = "attribute_not_exists(AccountNumber)"
-        };
+        if (account == null)
+            throw new ArgumentNullException(nameof(account));
 
-        await _dynamoDb.PutItemAsync(request);
+        try
+        {
+            var item = MapFromAccount(account);
+
+            var request = new PutItemRequest
+            {
+                TableName = _tableName,
+                Item = item,
+                ConditionExpression = "attribute_not_exists(AccountNumber)"
+            };
+
+            await _dynamoDb.PutItemAsync(request);
+            
+            return account;
+        }
+        catch (ConditionalCheckFailedException)
+        {
+            throw new DomainException($"Conta com número {account.AccountNumber} já existe");
+        }
+        catch (AmazonDynamoDBException ex)
+        {
+            throw new DomainException($"Erro ao adicionar conta: {ex.Message}", ex);
+        }
     }
 
-    public async Task UpdateAsync(Account account)
+    public async Task<Account?> UpdateAsync(Account account)
     {
-        var item = MapFromAccount(account);
-        
-        var request = new PutItemRequest
-        {
-            TableName = _tableName,
-            Item = item,
-            ConditionExpression = "attribute_exists(AccountNumber)"
-        };
+        if (account == null)
+            throw new ArgumentNullException(nameof(account));
 
-        await _dynamoDb.PutItemAsync(request);
+        try
+        {
+            var item = MapFromAccount(account);
+
+            var request = new PutItemRequest
+            {
+                TableName = _tableName,
+                Item = item,
+                ConditionExpression = "attribute_exists(AccountNumber)"
+            };
+
+            await _dynamoDb.PutItemAsync(request);
+            
+            return account;
+        }
+        catch (ConditionalCheckFailedException)
+        {
+            throw new DomainException($"Conta com número {account.AccountNumber} não existe");
+        }
+        catch (AmazonDynamoDBException ex)
+        {
+            throw new DomainException($"Erro ao atualizar conta: {ex.Message}", ex);
+        }
     }
 
     public async Task DeleteAsync(string accountNumber)
     {
-        var request = new DeleteItemRequest
-        {
-            TableName = _tableName,
-            Key = new Dictionary<string, AttributeValue>
-            {
-                { "AccountNumber", new AttributeValue { S = accountNumber } }
-            }
-        };
+        if (string.IsNullOrEmpty(accountNumber))
+            throw new ArgumentNullException(nameof(accountNumber));
 
-        await _dynamoDb.DeleteItemAsync(request);
+        try
+        {
+            var request = new DeleteItemRequest
+            {
+                TableName = _tableName,
+                Key = new Dictionary<string, AttributeValue>
+                {
+                    { "AccountNumber", new AttributeValue { S = accountNumber } }
+                }
+            };
+
+            await _dynamoDb.DeleteItemAsync(request);
+        }
+        catch (AmazonDynamoDBException ex)
+        {
+            throw new DomainException($"Erro ao excluir conta: {ex.Message}", ex);
+        }
     }
 
     private static Dictionary<string, AttributeValue> MapFromAccount(Account account)
@@ -92,6 +145,12 @@ public class AccountRepository : IAccountRepository
 
     private static Account MapToAccount(Dictionary<string, AttributeValue> item)
     {
+        if (!item.ContainsKey("Document") || !item.ContainsKey("Agency") || 
+            !item.ContainsKey("AccountNumber") || !item.ContainsKey("PixLimit"))
+        {
+            throw new DomainException("Dados da conta incompletos no banco de dados");
+        }
+
         return new Account(
             document: item["Document"].S,
             agency: item["Agency"].S,
