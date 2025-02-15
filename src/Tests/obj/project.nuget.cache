@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "2sqLAAkIMVgPVm7wHQzhY+vTnLxaoJhyDhkCANoUAQMd9NP4+vFRo03DwELoCxlucFqmJ4v1tDnZxq44yxZw6Q==",
+  "dgSpecHash": "IRgxZdfc2MQtKOFbz8Yt7qgdE9HA2UUaNxM1dDqPeAX2Zjn5gc1kg5BFZnzekHT9onr0yBznEIwh7xcGZj40zw==",
   "success": true,
   "projectFilePath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/FraudSys.Tests.csproj",
   "expectedPackageFiles": [
@@ -108,7 +108,9 @@
     "/home/aline/.nuget/packages/xunit.core/2.5.0/xunit.core.2.5.0.nupkg.sha512",
     "/home/aline/.nuget/packages/xunit.extensibility.core/2.5.0/xunit.extensibility.core.2.5.0.nupkg.sha512",
     "/home/aline/.nuget/packages/xunit.extensibility.execution/2.5.0/xunit.extensibility.execution.2.5.0.nupkg.sha512",
-    "/home/aline/.nuget/packages/xunit.runner.visualstudio/2.5.0/xunit.runner.visualstudio.2.5.0.nupkg.sha512"
+    "/home/aline/.nuget/packages/xunit.runner.visualstudio/2.5.0/xunit.runner.visualstudio.2.5.0.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

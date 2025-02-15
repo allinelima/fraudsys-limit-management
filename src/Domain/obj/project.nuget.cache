@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "C2VCvQEZYEL4NNeTQzrG9nkfa5i/TesnXQ4Y4WMI318o7gllc7Jb+RVPrABnAUprZ1X8Y9wzJHJY+oOKkfE2hw==",
+  "dgSpecHash": "UQ0yLORMyu+9UVOQZXmHVCZ3a3ap4prmmm74AJfgMdkChStkSfgRricJEtxlBFHTdirMe9vC2l3EJiEBSzJzPw==",
   "success": true,
   "projectFilePath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "/home/aline/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+  ],
   "logs": []
 }

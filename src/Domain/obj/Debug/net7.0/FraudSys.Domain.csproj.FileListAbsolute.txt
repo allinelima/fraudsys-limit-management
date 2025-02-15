@@ -1,11 +1,11 @@
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/bin/Debug/net7.0/FraudSys.Domain.deps.json
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/bin/Debug/net7.0/FraudSys.Domain.dll
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/bin/Debug/net7.0/FraudSys.Domain.pdb
-/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.csproj.AssemblyReference.cache
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.GeneratedMSBuildEditorConfig.editorconfig
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.AssemblyInfoInputs.cache
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.AssemblyInfo.cs
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.csproj.CoreCompileInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.sourcelink.json
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.dll
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/refint/FraudSys.Domain.dll
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/obj/Debug/net7.0/FraudSys.Domain.pdb

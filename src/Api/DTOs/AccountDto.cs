@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Api.DTOs
+namespace FraudSys.Api.DTOs
 {
     public class AccountDto
     {
@@ -19,8 +19,5 @@ namespace Api.DTOs
             AccountNumber = accountNumber ?? throw new ArgumentNullException(nameof(accountNumber));
             PixLimit = pixLimit;
         }
-
-        // Construtor vazio para serialização
-        public AccountDto() { }
     }
 }

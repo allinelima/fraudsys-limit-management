@@ -38,13 +38,13 @@ builder.Services.AddLogging(logging =>
 // Configure Health Checks
 builder.Services.AddHealthChecks()
     .AddCheck("self", () => HealthCheckResult.Healthy())
-    .AddDynamoDb(options =>
+    .AddCheck("dynamodb", () =>
     {
         var tableName = builder.Configuration.GetValue<string>("DynamoDB:TableName");
         if (string.IsNullOrEmpty(tableName))
-            throw new InvalidOperationException("DynamoDB:TableName não configurado no appsettings.json");
+            return HealthCheckResult.Unhealthy("DynamoDB:TableName não configurado no appsettings.json");
             
-        options.TableName = tableName;
+        return HealthCheckResult.Healthy();
     });
 
 var app = builder.Build();

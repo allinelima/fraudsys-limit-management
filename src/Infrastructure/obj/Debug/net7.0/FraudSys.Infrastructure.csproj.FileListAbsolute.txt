@@ -10,6 +10,7 @@
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.AssemblyInfoInputs.cache
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.AssemblyInfo.cs
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.csproj.CoreCompileInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.sourcelink.json
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.csproj.CopyComplete
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/FraudSys.Infrastructure.dll
 /home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/obj/Debug/net7.0/refint/FraudSys.Infrastructure.dll

@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZTwKKlHNQPzdoklq9QhGqNbebkmAM12BT/KFmQfYNthy8n2WcmQIEh0aIRQIbh8ui9jpjJTo0g2mhaA3vJPn5w==",
+  "dgSpecHash": "jrE4AXNHzwS96VUZ+BCvrbt1YsXRvMKeNruj3CoYWus/cPpAEw3LPvQqULBHm/SFeuPdbHQPfHxVxfq+fGiwqA==",
   "success": true,
   "projectFilePath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Api/FraudSys.Api.csproj",
   "expectedPackageFiles": [
@@ -29,7 +29,10 @@
     "/home/aline/.nuget/packages/swashbuckle.aspnetcore/6.5.0/swashbuckle.aspnetcore.6.5.0.nupkg.sha512",
     "/home/aline/.nuget/packages/swashbuckle.aspnetcore.swagger/6.5.0/swashbuckle.aspnetcore.swagger.6.5.0.nupkg.sha512",
     "/home/aline/.nuget/packages/swashbuckle.aspnetcore.swaggergen/6.5.0/swashbuckle.aspnetcore.swaggergen.6.5.0.nupkg.sha512",
-    "/home/aline/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512"
+    "/home/aline/.nuget/packages/swashbuckle.aspnetcore.swaggerui/6.5.0/swashbuckle.aspnetcore.swaggerui.6.5.0.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512",
+    "/home/aline/.nuget/packages/microsoft.netcore.app.host.linux-x64/7.0.20/microsoft.netcore.app.host.linux-x64.7.0.20.nupkg.sha512"
   ],
   "logs": []
 }

@@ -22,13 +22,12 @@ public class AccountServiceTests
     public async Task CreateAccount_WithValidData_ShouldSucceed()
     {
         // Arrange
-        var createDto = new CreateAccountDto
-        {
-            Document = "12345678901",
-            Agency = "0001",
-            AccountNumber = "123456",
-            PixLimit = 1000m
-        };
+        var createDto = new CreateAccountDto(
+            document: "12345678901",
+            agency: "0001",
+            accountNumber: "123456",
+            pixLimit: 1000m
+        );
 
         // Act
         var result = await _service.CreateAccountAsync(createDto);
