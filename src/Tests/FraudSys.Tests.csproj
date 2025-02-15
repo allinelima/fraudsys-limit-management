@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
@@ -15,10 +15,12 @@
     <PackageReference Include="FluentAssertions" Version="6.12.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Domain\FraudSys.Domain.csproj" />
+ <ItemGroup>
+    <ProjectReference Include="..\Api\FraudSys.Api.csproj" />
     <ProjectReference Include="..\Application\FraudSys.Application.csproj" />
+    <ProjectReference Include="..\Domain\FraudSys.Domain.csproj" />
     <ProjectReference Include="..\Infrastructure\FraudSys.Infrastructure.csproj" />
-  </ItemGroup>
+</ItemGroup>
+
 
 </Project>

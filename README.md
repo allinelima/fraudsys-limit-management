@@ -6,7 +6,7 @@ O **FraudSys** é um sistema desenvolvido para o **Banco KRT** com o objetivo de
 
 ## Tecnologias Utilizadas
 
-- **.NET 7**
+- **.NET 8**
 - **AWS DynamoDB** (banco de dados NoSQL)
 - **Arquitetura MVC**
 - **Princípios SOLID**
