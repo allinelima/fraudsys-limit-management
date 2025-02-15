@@ -41,6 +41,9 @@ namespace FraudSys.Tests.Controllers
             Assert.True(returnValue.Success);
             Assert.Equal(expectedResult.Message, returnValue.Message);
             Assert.Equal(expectedResult.NewBalance, returnValue.NewBalance);
+
+            // Verificar se o Correlation ID foi logado
+            _loggerMock.Verify(log => log.LogInformation(It.Is<string>(s => s.Contains("Correlation ID:"))), Times.Once);
         }
 
         [Fact]
@@ -58,6 +61,9 @@ namespace FraudSys.Tests.Controllers
             // Assert
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
             Assert.NotNull(badRequestResult.Value);
+
+            // Verificar se o Correlation ID foi logado
+            _loggerMock.Verify(log => log.LogError(It.Is<string>(s => s.Contains("Correlation ID:"))), Times.Once);
         }
 
         [Fact]
@@ -75,6 +81,9 @@ namespace FraudSys.Tests.Controllers
             // Assert
             var badRequestResult = Assert.IsType<BadRequestObjectResult>(result.Result);
             Assert.NotNull(badRequestResult.Value);
+
+            // Verificar se o Correlation ID foi logado
+            _loggerMock.Verify(log => log.LogError(It.Is<string>(s => s.Contains("Correlation ID:"))), Times.Once);
         }
     }
 }
