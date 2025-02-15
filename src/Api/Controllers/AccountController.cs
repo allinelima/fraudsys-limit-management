@@ -1,12 +1,11 @@
 using FraudSys.Application.DTOs;
 using FraudSys.Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
 namespace FraudSys.Api.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
-    public class AccountController : ControllerBase
+    public class AccountController : Controller
     {
         private readonly IAccountService _accountService;
         private readonly ILogger<AccountController> _logger;
@@ -17,87 +16,100 @@ namespace FraudSys.Api.Controllers
             _logger = logger;
         }
 
+        // Método para exibir a criação de uma conta
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Método para processar a criação de uma conta
         [HttpPost]
-        public async Task<ActionResult<AccountDto>> CreateAccount([FromBody] CreateAccountDto request)
+        public async Task<IActionResult> Create(CreateAccountDto request)
         {
-            var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
-
-            try
+            if (ModelState.IsValid)
             {
-                var result = await _accountService.CreateAccountAsync(request);
-                _logger.LogInformation("Conta criada com sucesso - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, result.AccountNumber);
-                return Created($"api/accounts/{result.AccountNumber}", result);
+                try
+                {
+                    var result = await _accountService.CreateAccountAsync(request);
+                    _logger.LogInformation("Conta criada com sucesso, Conta: {AccountNumber}", result.AccountNumber);
+                    return RedirectToAction("Details", new { accountNumber = result.AccountNumber });
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Erro ao criar conta");
+                    ModelState.AddModelError("", "Erro ao criar a conta.");
+                }
             }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao criar conta - Correlation ID: {CorrelationId}", correlationId);
-                return BadRequest(new { mensagem = ex.Message });
-            }
+            return View(request);
         }
 
+        // Método para exibir uma conta específica
         [HttpGet("{accountNumber}")]
-        public async Task<ActionResult<AccountDto>> GetAccount(string accountNumber)
+        public async Task<IActionResult> Details(string accountNumber)
         {
-            var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
-
-            try
+            var account = await _accountService.GetAccountAsync(accountNumber);
+            if (account == null)
             {
-                var account = await _accountService.GetAccountAsync(accountNumber);
-                _logger.LogInformation("Conta encontrada - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
-                return Ok(account);
+                return NotFound();
             }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao buscar conta - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
-                return NotFound(new { mensagem = ex.Message });
-            }
+            return View(account);
         }
 
-        [HttpPut("{accountNumber}/limit")]
-        public async Task<ActionResult<AccountDto>> UpdateLimit(string accountNumber, [FromBody] UpdateAccountLimitDto request)
+        // Método para atualizar o limite da conta
+        [HttpGet("{accountNumber}/limit")]
+        public IActionResult UpdateLimit(string accountNumber)
         {
-            var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
-
-            try
-            {
-                var result = await _accountService.UpdateLimitAsync(accountNumber, request);
-                _logger.LogInformation("Limite atualizado - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
-                return Ok(result);
-            }
-            catch (Exception ex)
-            {
-                _logger.LogError(ex, "Erro ao atualizar limite para conta - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
-                return BadRequest(new { mensagem = ex.Message });
-            }
+            var model = new UpdateAccountLimitDto { AccountNumber = accountNumber };
+            return View(model);
         }
 
+        [HttpPost("{accountNumber}/limit")]
+        public async Task<IActionResult> UpdateLimit(string accountNumber, UpdateAccountLimitDto request)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await _accountService.UpdateLimitAsync(accountNumber, request);
+                    return RedirectToAction("Details", new { accountNumber = result.AccountNumber });
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Erro ao atualizar limite para conta: {AccountNumber}", accountNumber);
+                    ModelState.AddModelError("", "Erro ao atualizar o limite.");
+                }
+            }
+            return View(request);
+        }
+
+        // Método para excluir uma conta
         [HttpDelete("{accountNumber}")]
-        public async Task<ActionResult> DeleteAccount(string accountNumber)
+        public async Task<IActionResult> DeleteAccount(string accountNumber)
         {
-            var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
-
             try
             {
                 await _accountService.DeleteAccountAsync(accountNumber);
-                _logger.LogInformation("Conta excluída - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
-                return NoContent();
+                _logger.LogInformation("Conta excluída com sucesso - Conta: {AccountNumber}", accountNumber);
+                return RedirectToAction("Index"); // ou outra página de listagem
             }
             catch (Exception ex)
             {
-                _logger.LogError(ex, "Erro ao excluir conta - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, accountNumber);
+                _logger.LogError(ex, "Erro ao excluir conta: {AccountNumber}", accountNumber);
                 return BadRequest(new { mensagem = ex.Message });
             }
         }
 
+        // Método para processar transações
         [HttpPost("transaction")]
-        public async Task<ActionResult<TransactionResultDto>> ProcessTransaction([FromBody] ProcessTransactionDto request)
+        public async Task<IActionResult> ProcessTransaction([FromBody] ProcessTransactionDto request)
         {
             var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
 
             try
             {
                 var result = await _accountService.ProcessTransactionAsync(request);
-                _logger.LogInformation("Transação processada - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, request.AccountNumber);
+                _logger.LogInformation("Transação processada com sucesso - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, request.AccountNumber);
                 return Ok(result);
             }
             catch (Exception ex)

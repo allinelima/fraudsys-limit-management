@@ -7,7 +7,7 @@ using FraudSys.Domain.Interfaces;
 using FraudSys.Infrastructure.Data.DynamoDb;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
-using FraudSys.Api.Middleware;
+using FraudSys.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
