@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "G5SXhTPQ/qzdlBkvmEBaBwJu/p9TOT+hQ+f1g/wBYdvGmJBlpxdcgx99G2t6XKp0C4YomSXO/A1yLuWRz3qwWQ==",
+  "dgSpecHash": "TBZCP7UPzxxnwKFgnTtqiMsufQtM0xRe3lghdvgRzEnH9mTmfTBVt0gHaEVE1dPjZspbKG+mnKSf5oneLphSxg==",
   "success": true,
   "projectFilePath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Infrastructure/FraudSys.Infrastructure.csproj",
   "expectedPackageFiles": [
@@ -14,9 +14,7 @@
     "/home/aline/.nuget/packages/microsoft.extensions.logging.abstractions/7.0.1/microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
     "/home/aline/.nuget/packages/microsoft.extensions.options/7.0.0/microsoft.extensions.options.7.0.0.nupkg.sha512",
     "/home/aline/.nuget/packages/microsoft.extensions.options.configurationextensions/7.0.0/microsoft.extensions.options.configurationextensions.7.0.0.nupkg.sha512",
-    "/home/aline/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512",
-    "/home/aline/.nuget/packages/microsoft.netcore.app.ref/7.0.20/microsoft.netcore.app.ref.7.0.20.nupkg.sha512",
-    "/home/aline/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.20/microsoft.aspnetcore.app.ref.7.0.20.nupkg.sha512"
+    "/home/aline/.nuget/packages/microsoft.extensions.primitives/7.0.0/microsoft.extensions.primitives.7.0.0.nupkg.sha512"
   ],
   "logs": []
 }

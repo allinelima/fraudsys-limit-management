@@ -5,6 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Moq;
 using Xunit;
+using FraudSys.Api.Controllers;
+using Microsoft.AspNetCore.Mvc;
+
 
 namespace FraudSys.Tests.Controllers
 {
