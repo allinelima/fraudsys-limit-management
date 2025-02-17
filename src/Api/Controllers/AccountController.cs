@@ -1,94 +1,123 @@
 using FraudSys.Application.DTOs;
 using FraudSys.Application.Services;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 
-namespace FraudSys.Api.Controllers;
-
-[ApiController]
-[Route("api/[controller]")]
-public class AccountController : ControllerBase
+namespace FraudSys.Api.Controllers
 {
-    private readonly IAccountService _accountService;
-    private readonly ILogger<AccountController> _logger;
-
-    public AccountController(IAccountService accountService, ILogger<AccountController> logger)
+    public class AccountController : Controller
     {
-        _accountService = accountService;
-        _logger = logger;
-    }
+        private readonly IAccountService _accountService;
+        private readonly ILogger<AccountController> _logger;
 
-    [HttpPost]
-    public async Task<ActionResult<AccountDto>> CreateAccount([FromBody] CreateAccountDto request)
-    {
-        try
+        public AccountController(IAccountService accountService, ILogger<AccountController> logger)
         {
-            var result = await _accountService.CreateAccountAsync(request);
-            return Created($"api/accounts/{result.AccountNumber}", result);
+            _accountService = accountService;
+            _logger = logger;
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Erro ao criar conta");
-            return BadRequest(new { mensagem = ex.Message });
-        }
-    }
 
-    [HttpGet("{accountNumber}")]
-    public async Task<ActionResult<AccountDto>> GetAccount(string accountNumber)
-    {
-        try
+        // Método para exibir a criação de uma conta
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        // Método para processar a criação de uma conta
+        [HttpPost]
+        public async Task<IActionResult> Create(CreateAccountDto request)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await _accountService.CreateAccountAsync(request);
+                    _logger.LogInformation("Conta criada com sucesso, Conta: {AccountNumber}", result.AccountNumber);
+                    return RedirectToAction("Details", new { accountNumber = result.AccountNumber });
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Erro ao criar conta");
+                    ModelState.AddModelError("", "Erro ao criar a conta.");
+                }
+            }
+            return View(request);
+        }
+
+        // Método para exibir uma conta específica
+        [HttpGet("{accountNumber}")]
+        public async Task<IActionResult> Details(string accountNumber)
         {
             var account = await _accountService.GetAccountAsync(accountNumber);
-            return Ok(account);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            return View(account);
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Erro ao buscar conta {AccountNumber}", accountNumber);
-            return NotFound(new { mensagem = ex.Message });
-        }
-    }
 
-    [HttpPut("{accountNumber}/limit")]
-    public async Task<ActionResult<AccountDto>> UpdateLimit(string accountNumber, [FromBody] UpdateAccountLimitDto request)
-    {
-        try
+        // Método para exibir a atualização do limite da conta
+        [HttpGet("{accountNumber}/limit")]
+        public IActionResult UpdateLimit(string accountNumber)
         {
-            var result = await _accountService.UpdateLimitAsync(accountNumber, request);
-            return Ok(result);
+            var model = new UpdateAccountLimitDto(accountNumber, 0); // Passando o accountNumber e 0 como valor inicial para NewLimit
+            return View(model);
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Erro ao atualizar limite para conta {AccountNumber}", accountNumber);
-            return BadRequest(new { mensagem = ex.Message });
-        }
-    }
 
-    [HttpDelete("{accountNumber}")]
-    public async Task<ActionResult> DeleteAccount(string accountNumber)
-    {
-        try
+        // Método para atualizar o limite da conta
+        [HttpPost("{accountNumber}/limit")]
+        public async Task<IActionResult> UpdateLimit(string accountNumber, UpdateAccountLimitDto request)
         {
-            await _accountService.DeleteAccountAsync(accountNumber);
-            return NoContent();
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    var result = await _accountService.UpdateLimitAsync(accountNumber, request);
+                    return RedirectToAction("Details", new { accountNumber = result.AccountNumber });
+                }
+                catch (Exception ex)
+                {
+                    _logger.LogError(ex, "Erro ao atualizar limite para conta: {AccountNumber}", accountNumber);
+                    ModelState.AddModelError("", "Erro ao atualizar o limite.");
+                }
+            }
+            return View(request);
         }
-        catch (Exception ex)
-        {
-            _logger.LogError(ex, "Erro ao excluir conta {AccountNumber}", accountNumber);
-            return BadRequest(new { mensagem = ex.Message });
-        }
-    }
 
-    [HttpPost("transaction")]
-    public async Task<ActionResult<TransactionResultDto>> ProcessTransaction([FromBody] ProcessTransactionDto request)
-    {
-        try
+        // Método para excluir uma conta
+        [HttpDelete("{accountNumber}")]
+        public async Task<IActionResult> DeleteAccount(string accountNumber)
         {
-            var result = await _accountService.ProcessTransactionAsync(request);
-            return Ok(result);
+            try
+            {
+                await _accountService.DeleteAccountAsync(accountNumber);
+                _logger.LogInformation("Conta excluída com sucesso - Conta: {AccountNumber}", accountNumber);
+                return RedirectToAction("Index"); // ou outra página de listagem
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao excluir conta: {AccountNumber}", accountNumber);
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
-        catch (Exception ex)
+
+        // Método para processar transações
+        [HttpPost("transaction")]
+        public async Task<IActionResult> ProcessTransaction([FromBody] ProcessTransactionDto request)
         {
-            _logger.LogError(ex, "Erro ao processar transação para conta {AccountNumber}", request.AccountNumber);
-            return BadRequest(new { mensagem = ex.Message });
+            var correlationId = HttpContext.Items["CorrelationId"]?.ToString() ?? Guid.NewGuid().ToString();
+
+            try
+            {
+                var result = await _accountService.ProcessTransactionAsync(request);
+                _logger.LogInformation("Transação processada com sucesso - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, request.AccountNumber);
+                return Ok(result);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro ao processar transação para conta - Correlation ID: {CorrelationId}, Conta: {AccountNumber}", correlationId, request.AccountNumber);
+                return BadRequest(new { mensagem = ex.Message });
+            }
         }
     }
 }

@@ -7,6 +7,7 @@ using FraudSys.Domain.Interfaces;
 using FraudSys.Infrastructure.Data.DynamoDb;
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.AspNetCore.Diagnostics.HealthChecks;
+using FraudSys.Api.Middlewares;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -47,6 +48,7 @@ builder.Services.AddHealthChecks()
         return HealthCheckResult.Healthy();
     });
 
+// Create the app
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -57,6 +59,10 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+// Register the Correlation ID middleware
+app.UseMiddleware<CorrelationIdMiddleware>();
+
 app.UseAuthorization();
 app.MapControllers();
 
@@ -80,4 +86,5 @@ app.MapHealthChecks("/health", new HealthCheckOptions
     }
 });
 
+// Run the application
 app.Run();

@@ -50,47 +50,55 @@ fraudsys-limit-management/
 
 ## Endpoints
 
-### 1. Cadastro de Limite
+### 1. Cadastro de Conta e Limite
 
-**POST** `/api/limite`
+**POST** `/api/account`
 
 ```json
 {
-  "cpf": "12345678900",
-  "agencia": "0001",
-  "conta": "123456",
-  "limite": 1000.00
+  "document": "12345678900",
+  "agency": "0001",
+  "accountNumber": "123456",
+  "pixLimit": 1000.00
 }
 ```
 
-### 2. Consulta de Limite
+### 2. Consulta de Conta e Limite
 
-**GET** `/api/limite/{cpf}`
+**GET** `/api/account/{accountNumber}`
 
 ### 3. Atualização de Limite
 
-**PUT** `/api/limite/{cpf}`
+**PUT** `/api/account/{accountNumber}/limit`
 
 ```json
 {
-  "limite": 2000.00
+  "pixLimit": 2000.00
 }
 ```
 
-### 4. Remoção de Registro
+### 4. Remoção de Conta
 
-**DELETE** `/api/limite/{cpf}`
+**DELETE** `/api/account/{accountNumber}`
 
-### 5. Validação de Transação PIX
+### 5. Processamento de Transação PIX
 
-**POST** `/api/transacao`
+**POST** `/api/account/{accountNumber}/transaction`
 
 ```json
 {
-  "cpf": "12345678900",
-  "valor": 500.00
+  "amount": 500.00
 }
 ```
+### 5. Processamento de Transação PIX
+
+**POST** `/api/transaction/pix`
+
+```json
+{
+  "accountNumber": "123456",
+  "amount": 500.00
+}
 
 ## Testes
 
@@ -103,4 +111,3 @@ Para rodar os testes unitários:
 ## Considerações Finais
 
 Este projeto foi desenvolvido como parte do processo seletivo do **BTG Pactual** para a vaga de **Desenvolvedor Full Stack - FraudSys**. O objetivo é demonstrar conhecimento em **.NET 8**, boas práticas de código e implementação de soluções escaláveis e seguras.
-

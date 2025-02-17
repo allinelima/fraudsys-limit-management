@@ -17,14 +17,14 @@
           "/home/aline/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj": {
                 "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Domain/FraudSys.Domain.csproj"
@@ -39,8 +39,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "FluentValidation": {
               "target": "Package",
@@ -62,22 +62,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -94,14 +84,14 @@
           "/home/aline/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -112,8 +102,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "imports": [
             "net461",
             "net462",
@@ -125,22 +115,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -157,14 +137,14 @@
           "/home/aline/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
                 "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
@@ -182,8 +162,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "AWSSDK.DynamoDBv2": {
               "target": "Package",
@@ -217,22 +197,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
@@ -249,14 +219,14 @@
           "/home/aline/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {
               "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj": {
                 "projectPath": "/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Application/FraudSys.Application.csproj"
@@ -277,8 +247,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "FluentAssertions": {
               "target": "Package",
@@ -312,22 +282,12 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "downloadDependencies": [
-            {
-              "name": "Microsoft.AspNetCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            },
-            {
-              "name": "Microsoft.NETCore.App.Ref",
-              "version": "[7.0.20, 7.0.20]"
-            }
-          ],
           "frameworkReferences": {
             "Microsoft.NETCore.App": {
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/aline/dotnet/sdk/8.0.113/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

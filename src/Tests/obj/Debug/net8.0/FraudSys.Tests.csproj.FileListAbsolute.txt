@@ -1,0 +1,6 @@
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.csproj.AssemblyReference.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.GeneratedMSBuildEditorConfig.editorconfig
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.AssemblyInfoInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.AssemblyInfo.cs
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.csproj.CoreCompileInputs.cache
+/home/aline/Documentos/Estudos programação/c#/FraudSys/src/Tests/obj/Debug/net8.0/FraudSys.Tests.sourcelink.json
